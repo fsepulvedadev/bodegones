@@ -138,12 +138,7 @@ const Lista = () => {
                   <p className="flex items-center gap-2">
                     <IoCallSharp className="inline w-6" />
 
-                    <a
-                      href={`tel:${bodegon.telefono}`}
-                      className="text-xs font-bold"
-                    >
-                      {bodegon.telefono}
-                    </a>
+                    <p className="text-xs font-bold">{bodegon.telefono}</p>
                   </p>
                 </div>
               </div>
