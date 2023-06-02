@@ -42,7 +42,7 @@ function App() {
   };
 
   return (
-    <div className="h-screen text-red-600 pattern-checks-md bg-slate-100">
+    <div className="text-red-600  md:h-screen pattern-checks-md bg-slate-100">
       <div className="p-2 mx-auto lg:w-12/12">
         <Navbar />
         <div className="flex flex-col-reverse gap-2 md:grid md:grid-cols-2">
