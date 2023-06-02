@@ -115,7 +115,7 @@ const Lista = () => {
           </div>
         ))}
       </div>
-      <div className="grid gap-4 p-2 overflow-auto text-base md:hidden place-items-center h-[36vh]">
+      <div className="grid gap-4 p-2 overflow-auto text-base md:hidden place-items-center h-[30vh]">
         {bodegones?.map((bodegon) => (
           <div
             key={bodegon._id}
