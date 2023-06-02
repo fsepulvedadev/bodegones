@@ -12,6 +12,6 @@ body {
 
 @media screen and (max-width: 768px) {
   #map {
-    height: 40vh;
+    height: 35vh;
   }
 }
