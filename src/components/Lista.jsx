@@ -162,7 +162,7 @@ const Lista = () => {
                 </button>
                 <a
                   href={`tel:${bodegon.telefono}`}
-                  className="absolute gap-2 bg-red-600 border-red-600 text-slate-100 text-shite -bottom-2 right-9 btn btn-sm hover:bg-red-500 hover:text-slate-100 hover:border-red-500 "
+                  className="absolute gap-2 bg-red-600 border-red-600 text-slate-100 text-shite -bottom-2 right-11 btn btn-sm hover:bg-red-500 hover:text-slate-100 hover:border-red-500 "
                 >
                   <IoCallSharp className="text-xs" />
                 </a>
