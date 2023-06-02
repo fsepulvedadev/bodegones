@@ -165,18 +165,12 @@ const Lista = () => {
                 >
                   <IoNavigateSharp className="text-xs" />
                 </button>
-                <button
-                  onClick={() =>
-                    window.open(
-                      `https://www.google.com/maps/dir//${handleIr(
-                        bodegon.nombre
-                      )}`
-                    )
-                  }
+                <a
+                  href={`tel:${bodegon.telefono}`}
                   className="absolute gap-2 bg-red-600 border-red-600 text-slate-100 text-shite -bottom-2 right-9 btn btn-sm hover:bg-red-500 hover:text-slate-100 hover:border-red-500 "
                 >
                   <IoCallSharp className="text-xs" />
-                </button>
+                </a>
               </div>
             </div>
           </div>
