@@ -16,6 +16,7 @@ export const useBodegonesStore = create((set) => ({
     });
 
     set((state) => ({ ...state, allBodegones: nuevosBodegones }));
+    /*  set((state) => ({ ...state, bodegones: nuevosBodegones })); */
   },
   ubiObjetivo: null,
   setUbiObjetivo: (ubiObjetivo) => set({ ubiObjetivo }),

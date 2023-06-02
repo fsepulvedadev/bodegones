@@ -42,50 +42,52 @@ function App() {
   };
 
   return (
-    <div className="text-red-600 pattern-checks-md bg-slate-100 ">
-      <div className="p-2 mx-auto lg:w-10/12">
+    <div className="h-screen text-red-600 pattern-checks-md bg-slate-100">
+      <div className="p-2 mx-auto lg:w-12/12">
         <Navbar />
-        <MapContainer
-          maxBounds={[
-            [-34.763419814328486, -58.2114779737599],
-            [-34.51484440985933, -58.78225600157626],
-          ]}
-          maxBoundsViscosity={0.5}
-          id="map"
-          center={[-34.63007387287545, -58.41834]}
-          zoom={11}
-          scrollWheelZoom={true}
-        >
-          <TileLayer
-            attribution=""
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <FuncionesDeMapa />
+        <div className="flex flex-col-reverse gap-2 md:grid md:grid-cols-2">
+          <MapContainer
+            maxBounds={[
+              [-34.763419814328486, -58.2114779737599],
+              [-34.51484440985933, -58.78225600157626],
+            ]}
+            maxBoundsViscosity={0.5}
+            id="map"
+            center={[-34.63007387287545, -58.41834]}
+            zoom={11}
+            scrollWheelZoom={true}
+          >
+            <TileLayer
+              attribution=""
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <FuncionesDeMapa />
 
-          {bodegones?.map((bodegon) => (
-            <Marker
-              icon={randomIcon()}
-              key={bodegon.id}
-              position={bodegon.ubicacion}
-            >
-              <Popup key={bodegon.id}>
-                {bodegon.nombre}
-                <br />
-                {bodegon.direccion}
-                <br />
+            {bodegones?.map((bodegon) => (
+              <Marker
+                icon={randomIcon()}
+                key={bodegon.id}
+                position={bodegon.ubicacion}
+              >
+                <Popup key={bodegon.id}>
+                  {bodegon.nombre}
+                  <br />
+                  {bodegon.direccion}
+                  <br />
 
-                {bodegon.barrio}
-                <br />
-                {bodegon.descripcion}
-                <br />
-                {bodegon.telefono}
-                <br />
-              </Popup>
-            </Marker>
-          ))}
-        </MapContainer>
+                  {bodegon.barrio}
+                  <br />
+                  {bodegon.descripcion}
+                  <br />
+                  {bodegon.telefono}
+                  <br />
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
 
-        <Lista />
+          <Lista />
+        </div>
       </div>
     </div>
   );

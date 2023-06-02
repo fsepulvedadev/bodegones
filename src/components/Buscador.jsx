@@ -18,7 +18,7 @@ const Buscador = () => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="flex items-center justify-center w-full gap-2 p-2 my-2"
+        className="flex items-center justify-center w-full gap-2 p-2"
       >
         <input
           onChange={(e) => {

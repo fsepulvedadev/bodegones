@@ -29,21 +29,29 @@ const Lista = () => {
   const { setUbiObjetivo } = useBodegonesStore();
 
   useEffect(() => {
-    getAllBodegones();
     if (!busqueda) {
+      setBodegones(allBodegones);
+    }
+  }, [allBodegones]);
+
+  useEffect(() => {
+    getAllBodegones();
+    console.log(allBodegones);
+    if (busqueda.length === 0) {
       setBodegones(allBodegones);
     }
   }, [busqueda]);
 
   return (
-    <div className="mt-2 border-2 border-red-600 bg-slate-100">
+    <div className="border-2 border-red-600 bg-slate-100 h-[80vh]">
       <Buscador />
 
-      <div className="grid grid-cols-2 gap-2 p-2 overflow-auto text-base lg:grid-cols-4 md:grid-cols-3 place-items-center h-2/4 min-h-[20vh]">
+      <div className="hidden gap-2 p-2 overflow-auto text-base h-[70vh] md:grid  lg:grid-cols-2 md:grid-cols-2 place-items-center">
         {bodegones?.map((bodegon) => (
           <div
-            key={bodegon.id}
-            className="card  bg-slate-200 shadow-xl border-2 border-red-600 hover:border-info transform duration-500 h-[500px]"
+            key={bodegon._id}
+            onClick={() => setUbiObjetivo(bodegon.ubicacion)}
+            className="duration-500 transform border-2 border-red-600 shadow-2xl card bg-slate-200 hover:border-info md:h-[50vh] cursor-pointer"
           >
             <figure className="">
               {bodegon.website && (
@@ -81,14 +89,14 @@ const Lista = () => {
               </div>
 
               <div className="gap-2 badge badge-info">{bodegon.barrio}</div>
-              <div className="flex justify-center gap-2 mt-4 ">
-                <button
+              <div className="flex justify-start gap-2 mt-4 ">
+                {/*     <button
                   onClick={() => setUbiObjetivo(bodegon.ubicacion)}
                   className="gap-2 text-red-500 border-red-500 btn btn-sm btn-outline hover:bg-red-500 hover:text-slate-100 hover:border-red-500 "
                 >
                   Ubicar
                   <MdOutlineMyLocation />
-                </button>
+                </button> */}
                 <button
                   onClick={() =>
                     window.open(
@@ -101,6 +109,73 @@ const Lista = () => {
                 >
                   Ir
                   <IoNavigateSharp />
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="grid gap-4 p-2 overflow-auto text-base md:hidden place-items-center h-[70vh]">
+        {bodegones?.map((bodegon) => (
+          <div
+            key={bodegon._id}
+            onClick={() => setUbiObjetivo(bodegon.ubicacion)}
+            className="duration-500 transform border-2 border-red-600 shadow-2xl cursor-pointer card bg-slate-200 hover:border-info h-[16vh] w-11/12"
+          >
+            <div className="flex flex-col justify-between p-2 text-xs card-body md:p-6 h-[180px] my-1">
+              <h2 className="font-semibold text-center text-black ">
+                {bodegon.nombre}
+              </h2>
+              <div className="flex flex-col items-center">
+                <p className="italic ">{`"${bodegon.descripcion}"`}</p>
+
+                <div className="flex flex-col gap-2 mt-1">
+                  <p className="flex items-center gap-2 ">
+                    <IoLocationSharp className="inline w-6 " />{" "}
+                    <span className="">{bodegon.direccion}</span>
+                  </p>
+
+                  <p className="flex items-center gap-2">
+                    <IoCallSharp className="inline w-6" />
+
+                    <a
+                      href={`tel:${bodegon.telefono}`}
+                      className="text-xs font-bold"
+                    >
+                      {bodegon.telefono}
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-2 ">
+                <div className="gap-2 text-xs text-clip badge badge-info">
+                  {bodegon.barrio}
+                </div>
+
+                <button
+                  onClick={() =>
+                    window.open(
+                      `https://www.google.com/maps/dir//${handleIr(
+                        bodegon.nombre
+                      )}`
+                    )
+                  }
+                  className="absolute gap-2 bg-red-600 border-red-600 text-slate-100 text-shite -bottom-2 -right-2 btn btn-sm hover:bg-red-500 hover:text-slate-100 hover:border-red-500 "
+                >
+                  <IoNavigateSharp className="text-xs" />
+                </button>
+                <button
+                  onClick={() =>
+                    window.open(
+                      `https://www.google.com/maps/dir//${handleIr(
+                        bodegon.nombre
+                      )}`
+                    )
+                  }
+                  className="absolute gap-2 bg-red-600 border-red-600 text-slate-100 text-shite -bottom-2 right-9 btn btn-sm hover:bg-red-500 hover:text-slate-100 hover:border-red-500 "
+                >
+                  <IoCallSharp className="text-xs" />
                 </button>
               </div>
             </div>
