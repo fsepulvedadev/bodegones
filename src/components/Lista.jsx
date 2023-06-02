@@ -43,7 +43,7 @@ const Lista = () => {
   }, [busqueda]);
 
   return (
-    <div className="border-2 border-red-600 bg-slate-100 h-[80vh]">
+    <div className="border-2 border-red-600 bg-slate-100 md:h-[80vh]">
       <Buscador />
 
       <div className="hidden gap-2 p-2 overflow-auto text-base h-[70vh] md:grid  lg:grid-cols-2 md:grid-cols-2 place-items-center">
@@ -115,7 +115,7 @@ const Lista = () => {
           </div>
         ))}
       </div>
-      <div className="grid gap-4 p-2 overflow-auto text-base md:hidden place-items-center h-[70vh]">
+      <div className="grid gap-4 p-2 overflow-auto text-base md:hidden place-items-center h-[36vh]">
         {bodegones?.map((bodegon) => (
           <div
             key={bodegon._id}
@@ -144,7 +144,7 @@ const Lista = () => {
               </div>
 
               <div className="flex items-center justify-between gap-2 ">
-                <div className="gap-2 text-xs text-clip badge badge-info">
+                <div className="gap-2 mb-2 text-xs text-clip badge badge-info">
                   {bodegon.barrio}
                 </div>
 
